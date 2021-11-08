@@ -41,3 +41,16 @@ button {
   transform: translate(-50%, -50%);
   height: max-content;
 }
+
+.feature:nth-child(1) .image {
+  order: -9999;
+}
+.feature:nth-child(1) .content {
+  order: 9999;
+}
+.feature:nth-child(3) .image {
+  order: -9999;
+}
+.feature:nth-child(3) .content {
+  order: 9999;
+}

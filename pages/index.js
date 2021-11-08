@@ -2,6 +2,7 @@ import Head from "next/head";
 import React from "react";
 import Header from "../components/Header";
 import TokenIntro from "../components/TokenIntro";
+import Features from "../components/Features";
 
 const Home = () => {
   return (
@@ -16,6 +17,7 @@ const Home = () => {
       </Head>
       <Header />
       <TokenIntro />
+      <Features />
     </>
   );
 };
