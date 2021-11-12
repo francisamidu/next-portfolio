@@ -3,6 +3,7 @@ import React from "react";
 import Header from "../components/Header";
 import TokenIntro from "../components/TokenIntro";
 import Features from "../components/Features";
+import Footer from "../components/Footer";
 
 const Home = () => {
   return (
@@ -18,6 +19,7 @@ const Home = () => {
       <Header />
       <TokenIntro />
       <Features />
+      <Footer />
     </>
   );
 };
