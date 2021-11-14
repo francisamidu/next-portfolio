@@ -1,0 +1,49 @@
+.overlay {
+  background-image: url("/dashboard.jpg");
+  background-size: cover;
+}
+.facebook {
+  background-color: rgb(75, 75, 161);
+  cursor: pointer;
+}
+
+.google {
+  background-color: rgb(177, 25, 25);
+  cursor: pointer;
+}
+
+.separator {
+  text-align: center;
+  margin: 3em 0;
+}
+.separator span {
+  display: block;
+  position: relative;
+  width: 50%;
+  margin: 0 auto;
+  text-transform: uppercase;
+  font-size: 13px;
+}
+.separator span::before {
+  background-color: rgba(0, 0, 0, 0.1);
+  width: 30%;
+  height: 1.5px;
+  position: absolute;
+  left: 0;
+  top: 50%;
+  content: "";
+  transform: translateY(-50%);
+}
+.separator span::after {
+  background-color: rgba(0, 0, 0, 0.1);
+  width: 30%;
+  height: 1.5px;
+  position: absolute;
+  right: 0;
+  top: 50%;
+  content: "";
+  transform: translateY(-50%);
+}
+input:focus {
+  outline: none;
+}

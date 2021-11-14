@@ -4,12 +4,15 @@ import Header from "../components/Header";
 import TokenIntro from "../components/TokenIntro";
 import Features from "../components/Features";
 import Footer from "../components/Footer";
+import { useData } from "../contexts/DataContext";
 
 const Home = () => {
+  const { data } = useData();
+  const { name } = data;
   return (
     <>
       <Head>
-        <title>Cryptohub - The best crypto dashboard on the internet</title>
+        <title>{name} - The best crypto dashboard on the internet</title>
         <meta
           name="description"
           content="Your next favorite crypto dashboard"
