@@ -13,7 +13,7 @@ const Header = () => {
           <a className="text-3xl font-bold">Cryptohub</a>
         </Link>
         <div className="flex flex-row justify-between item-center">
-          <Link href="login">
+          <Link href="/login">
             <a className="text-1xl text-gray-600 mr-4 hover:text-gray-400">
               Login
             </a>

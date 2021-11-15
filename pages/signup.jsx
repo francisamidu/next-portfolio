@@ -1,13 +1,37 @@
-import React from "react";
+import React, { useState } from "react";
 import Link from "next/link";
 import Head from "next/head";
 import { useData } from "../contexts/DataContext";
 import { SiFacebook, SiGoogle } from "react-icons/si";
 import Button from "../components/Button";
 
-const Login = () => {
+import Api from "../services/api";
+
+const Signup = () => {
   const { data } = useData();
   const { name, year } = data;
+
+  const [user, setUser] = useState({
+    email: "",
+    username: "",
+    password: "",
+    confirmPassword: "",
+  });
+
+  const signupUser = async (event) => {
+    event.preventDefault();
+    try {
+      const response = await Api.signup(
+        user.email,
+        user.username,
+        user.password
+      );
+      console.log(response);
+    } catch (error) {
+      console.log(error);
+    }
+  };
+
   return (
     <>
       <Head>
@@ -44,13 +68,19 @@ const Login = () => {
           <div className="separator">
             <span>or</span>
           </div>
-          <form className="flex flex-row flex-wrap justify-between my-4 items-center">
+          <form
+            className="flex flex-row flex-wrap justify-between my-4 items-center"
+            onSubmit={signupUser}
+          >
             <div className="input-group flex flex-col w-1/2 pr-4 mt-2">
               <label htmlFor="username">Username</label>
               <input
                 type="text"
                 id="username"
                 className="mt-2 rounded-sm w-full py-2 px-2 border-2 border-gray-200"
+                onChange={(event) =>
+                  setUser({ ...user, username: event.target.value })
+                }
               />
             </div>
             <div className="input-group flex flex-col w-1/2 pr-4 mt-2">
@@ -59,6 +89,9 @@ const Login = () => {
                 type="text"
                 id="email"
                 className="mt-2 rounded-sm w-full py-2 px-2 border-2 border-gray-200"
+                onChange={(event) =>
+                  setUser({ ...user, email: event.target.value })
+                }
               />
             </div>
             <div className="input-group flex flex-col w-1/2 pr-4 mt-2">
@@ -67,6 +100,9 @@ const Login = () => {
                 type="password"
                 id="password"
                 className="mt-2 rounded-sm w-full py-2 px-2 border-2 border-gray-200"
+                onChange={(event) =>
+                  setUser({ ...user, password: event.target.value })
+                }
               />
             </div>
             <div className="input-group flex flex-col w-1/2 pr-4 mt-2">
@@ -75,6 +111,9 @@ const Login = () => {
                 type="password"
                 id="repeat-password"
                 className="mt-2 rounded-sm w-full py-2 px-2 border-2 border-gray-200"
+                onChange={(event) =>
+                  setUser({ ...user, confirmPassword: event.target.value })
+                }
               />
             </div>
             <Button text="Create Account" />
@@ -91,4 +130,4 @@ const Login = () => {
   );
 };
 
-export default Login;
+export default Signup;

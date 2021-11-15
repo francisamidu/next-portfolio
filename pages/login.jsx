@@ -5,9 +5,28 @@ import { useData } from "../contexts/DataContext";
 import { SiFacebook, SiGoogle } from "react-icons/si";
 import Button from "../components/Button";
 
-const Signup = () => {
+import Api from "../services/api";
+
+const Login = () => {
   const { data } = useData();
   const { name, year } = data;
+
+  const username = useRef();
+  const passwordRef = useRef();
+
+  const loginUser = async (event) => {
+    event.preventDefault();
+    try {
+      const username = usernameRef.current.value;
+      const password = passwordRef.current.value;
+
+      const response = await Api.login(username, password);
+      console.log(response);
+    } catch (error) {
+      console.log(error);
+    }
+  };
+
   return (
     <>
       <Head>
@@ -43,7 +62,10 @@ const Signup = () => {
           <div className="separator">
             <span>or</span>
           </div>
-          <form className="flex flex-col justify-center self-center my-4 mt-0 items-center w-4/5">
+          <form
+            className="flex flex-col justify-center self-center my-4 mt-0 items-center w-4/5"
+            onSubmit={loginUser}
+          >
             <div className="input-group flex flex-col pr-4 mt-2 w-full">
               <label htmlFor="username">Username</label>
               <input
@@ -74,4 +96,4 @@ const Signup = () => {
   );
 };
 
-export default Signup;
+export default Login;
