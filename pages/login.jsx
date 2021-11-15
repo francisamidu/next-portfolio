@@ -1,7 +1,11 @@
-import React from "react";
+import React, { useState } from "react";
 import Link from "next/link";
+import router from "next/router";
 import Head from "next/head";
+
 import { useData } from "../contexts/DataContext";
+import { useAuth } from "../contexts/AuthContext";
+
 import { SiFacebook, SiGoogle } from "react-icons/si";
 import Button from "../components/Button";
 
@@ -9,19 +13,22 @@ import Api from "../services/api";
 
 const Login = () => {
   const { data } = useData();
+  const { setAuth } = useAuth();
+
   const { name, year } = data;
 
-  const username = useRef();
-  const passwordRef = useRef();
+  const [user, setUser] = useState({
+    username: "",
+    password: "",
+  });
 
   const loginUser = async (event) => {
     event.preventDefault();
     try {
-      const username = usernameRef.current.value;
-      const password = passwordRef.current.value;
-
-      const response = await Api.login(username, password);
-      console.log(response);
+      const response = await Api.login(user.username, user.password);
+      const { user: authUser, token } = response;
+      setAuth({ isAuthenticated: true, authUser, token });
+      router.push("/dashboard");
     } catch (error) {
       console.log(error);
     }
@@ -72,6 +79,9 @@ const Login = () => {
                 type="text"
                 id="username"
                 className="mt-2 rounded-sm w-full py-2 px-2 border-2 border-gray-200"
+                onChange={(event) =>
+                  setUser({ ...user, username: event.target.value })
+                }
               />
             </div>
             <div className="input-group flex flex-col pr-4 mt-2 w-full">
@@ -80,6 +90,9 @@ const Login = () => {
                 type="password"
                 id="password"
                 className="mt-2 rounded-sm w-full py-2 px-2 border-2 border-gray-200"
+                onChange={(event) =>
+                  setUser({ ...user, password: event.target.value })
+                }
               />
             </div>
             <Button text="Login" />

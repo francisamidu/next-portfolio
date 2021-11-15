@@ -3,7 +3,7 @@ import Sidebar from "../components/Sidebar";
 
 const Dashboard = () => {
   return (
-    <main>
+    <main className="grid min-h-screen">
       <Sidebar />
     </main>
   );
