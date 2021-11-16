@@ -9,7 +9,6 @@ export default class Api {
           password,
         }),
         headers: {
-          Accept: "application/json",
           "Content-Type": "application/json",
         },
       });
@@ -21,10 +20,6 @@ export default class Api {
   }
   static async signup(email, username, password) {
     try {
-      const data = new FormData();
-      data.append("email", email);
-      data.append("password", password);
-      data.append("username", username);
       const request = await fetch(`${BASE_URL}/auth/signup`, {
         method: "POST",
         body: JSON.stringify({
@@ -33,7 +28,24 @@ export default class Api {
           password,
         }),
         headers: {
-          Accept: "application/json",
+          "Content-Type": "application/json",
+        },
+      });
+      const response = await request.json();
+      return response;
+    } catch (error) {
+      throw error;
+    }
+  }
+  static async signout(accessToken, refreshToken) {
+    try {
+      const request = await fetch(`${BASE_URL}/auth/logout`, {
+        method: "DELETE",
+        body: JSON.stringify({
+          accessToken,
+          refreshToken,
+        }),
+        headers: {
           "Content-Type": "application/json",
         },
       });
