@@ -1,6 +1,8 @@
 import "../styles/globals.css";
 import "../styles/dashboard.css";
 import "../styles/signup.css";
+import "../styles/spinner.css";
+
 import { NewsContextProvider } from "../contexts/NewsContext";
 import { DataContextProvider } from "../contexts/DataContext";
 import { AuthContextProvider } from "../contexts/AuthContext";

@@ -3,19 +3,35 @@
   transition: 0.3s background-color ease-in-out;
 }
 .link.active {
+  background-color: #ecf1f8;
+}
+.link.active span {
+  color: rgb(59, 130, 246);
+}
+.dark .link.active {
   background-color: rgba(255, 255, 255, 0.1);
 }
 
 main.grid {
   grid-template-columns: 250px 1fr;
+  background-color: #ecf1f8;
+}
+.sidebar {
+  background-color: #fff;
+}
+main.dark {
   background-color: rgb(12, 12, 12);
 }
 
-.sidebar {
+.dark .sidebar {
   background-color: rgb(5, 5, 5);
 }
 
 .collapse {
   justify-self: end;
   cursor: pointer;
+}
+
+#toggle:checked ~ label .switch {
+  @apply translate-x-3;
 }

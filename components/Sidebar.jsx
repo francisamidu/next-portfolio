@@ -8,7 +8,7 @@ const { v4 } = require("uuid");
 
 import { BiHome, BiCoin, BiSend, BiNews, BiLayout } from "react-icons/bi";
 
-const Sidebar = () => {
+const Sidebar = ({ theme, setTheme }) => {
   const { data } = useData();
   const { name } = data;
 
@@ -79,6 +79,11 @@ const Sidebar = () => {
     setLinks(updatedLinks);
   };
 
+  //Toggle theme from light to dark and back
+  const toggleTheme = () => {
+    setTheme(theme === "light" ? "dark" : "light");
+  };
+
   return (
     <>
       <Head>
@@ -112,9 +117,31 @@ const Sidebar = () => {
             </p>
           ))}
         </div>
-        <div className="py-5 px-4 border-t border-gray-500 text-center collapse flex flex-row items-center">
-          <BiLayout className="text-gray-500" />
-          <span className="ml-4 text-gray-500">Collapse Sidebar</span>
+        <div className="flex flex-row justify-between items-center px-4">
+          <input
+            type="checkbox"
+            name=""
+            id="toggle"
+            className="hidden"
+            hidden
+            onChange={() => toggleTheme()}
+          />
+          <span
+            className={theme === "dark" ? "text-gray-500" : "text-gray-800"}
+          >
+            Dark mode
+          </span>
+          <label htmlFor="toggle">
+            <div
+              className={
+                theme === "dark"
+                  ? "w-9 h-5 items-center rounded-full bg-blue-500 p-1 flex items-center"
+                  : "w-9 h-5 items-center rounded-full bg-gray-300 p-1 flex items-center"
+              }
+            >
+              <div className="switch transform duration-300 ease-in-out w-4 h-4 bg-white rounded-full shadow-md"></div>
+            </div>
+          </label>
         </div>
       </section>
     </>
