@@ -26,7 +26,7 @@ const Header = () => {
       <div className="px-8 mt-20 md:mt-0 flex md:flex-row flex-col justify-between items-center">
         <div className="flex flex-col md:block text-gray-500 md:w-2/4 w-full md:text-left text-center px-4 md:px-8 items-center">
           <h1 className="text-4xl font-bold mb-4 leading-11">
-            Trending Cryptocurrency news belongs in your dashboard
+            More than just a crypto prices tracking dashboard
           </h1>
           <p className="leading-7 my-8">
             Cryptohub is the industry-leading dashboard for keeping you up to
