@@ -8,6 +8,10 @@
   --main-color: #003561;
 }
 
+.custom-blue {
+  color: var(--main-color);
+}
+
 html,
 body {
   padding: 0;

@@ -1,12 +1,11 @@
 import React, { useState } from "react";
-import Head from "next/head";
 import Link from "next/link";
 
 import { useData } from "../contexts/DataContext";
 
 const { v4 } = require("uuid");
 
-import { BiHome, BiCoin, BiSend, BiNews, BiLayout } from "react-icons/bi";
+import { BiHome, BiCoin, BiSend, BiNews } from "react-icons/bi";
 
 const Sidebar = ({ theme, setTheme }) => {
   const { data } = useData();
@@ -86,9 +85,6 @@ const Sidebar = ({ theme, setTheme }) => {
 
   return (
     <>
-      <Head>
-        <title>{name} - Dashboard</title>
-      </Head>
       <section className="flex flex-col py-4 px-2 sidebar col-start-1 cols-end-2 min-h-screen h-full">
         <div className="brand pt-4 mr-4 text-center">
           <Link href="/">
