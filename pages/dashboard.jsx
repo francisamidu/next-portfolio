@@ -14,6 +14,8 @@ import { useAuth } from "../contexts/AuthContext";
 import { useData } from "../contexts/DataContext";
 import { useGetExchangesQuery, useGetCoinsQuery } from "../services/cryptoApi";
 
+const { v4 } = require("uuid");
+
 const Dashboard = () => {
   const { auth } = useAuth();
 
@@ -25,38 +27,36 @@ const Dashboard = () => {
   const { name } = data;
 
   const { data: allData, isFetching } = useGetCoinsQuery();
-  // const { stats } = allData?.data;
-  console.log(allData);
   const [coinStats, setCoinStats] = useState([]);
-  // if (stats) {
-  //   setStats([
-  //     {
-  //       id: v4(),
-  //       text: "Total cryptocurrencies",
-  //       total: stats?.total,
-  //     },
-  //     {
-  //       id: v4(),
-  //       text: "Total market cap",
-  //       total: stats?.totalMarketCap,
-  //     },
-  //     {
-  //       id: v4(),
-  //       text: "Total exchanges",
-  //       total: stats?.totalExchanges,
-  //     },
-  //     {
-  //       id: v4(),
-  //       text: "Total markets",
-  //       total: stats?.totalMarkets,
-  //     },
-  //     {
-  //       id: v4(),
-  //       text: "Total 24h volume",
-  //       total: stats?.total24hVolume,
-  //     },
-  //   ]);
-  // }
+  if (allData?.data?.stats) {
+    setCoinStats([
+      {
+        id: v4(),
+        text: "Total cryptocurrencies",
+        total: allData.data.stats.total,
+      },
+      {
+        id: v4(),
+        text: "Total market cap",
+        total: allData.data.stats.totalMarketCap,
+      },
+      {
+        id: v4(),
+        text: "Total exchanges",
+        total: allData.data.stats.totalExchanges,
+      },
+      {
+        id: v4(),
+        text: "Total markets",
+        total: allData.data.stats.totalMarkets,
+      },
+      {
+        id: v4(),
+        text: "Total 24h volume",
+        total: allData.data.stats.total24hVolume,
+      },
+    ]);
+  }
 
   const getComponent = () => {
     switch (page) {
@@ -77,11 +77,9 @@ const Dashboard = () => {
     if (!auth.isAuthenticated && !accessToken && !refreshToken) {
       router.push("/login");
     } else {
-      if (!isFetching) {
-        setIsLoading(false);
-      }
+      setIsLoading(false);
     }
-  });
+  }, [undefined]);
   return (
     <>
       <Head>
