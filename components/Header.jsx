@@ -4,7 +4,13 @@ import Image from "next/image";
 import Button from "./Button";
 import TrendingItem from "./TrendingItem";
 
+import router from "next/router";
+
 const Header = () => {
+  const handleClick = (event) => {
+    router.push("/login");
+  };
+
   return (
     <section className="flex md:pt-12 pt-4 relative flex-col">
       <TrendingItem />
@@ -34,7 +40,7 @@ const Header = () => {
             coins we have it all under one roof. Be ahead of your competition
             with latest trends
           </p>
-          <Button text="Get Started Today" />
+          <Button text="Get Started Today" onClick={handleClick} />
         </div>
         <Image
           src="/bitcoin.jpg"

@@ -23,8 +23,8 @@ const Dashboard = () => {
     <main
       className={
         theme === "light"
-          ? "grid min-h-screen relative"
-          : "grid min-h-screen relative dark"
+          ? "dashboard grid min-h-screen relative"
+          : "dashboard grid min-h-screen relative dark"
       }
     >
       {isLoading && <Loading theme={theme} />}
