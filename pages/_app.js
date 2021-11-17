@@ -3,19 +3,21 @@ import "../styles/dashboard.css";
 import "../styles/signup.css";
 import "../styles/spinner.css";
 
-import { NewsContextProvider } from "../contexts/NewsContext";
 import { DataContextProvider } from "../contexts/DataContext";
 import { AuthContextProvider } from "../contexts/AuthContext";
 
+import { Provider } from "react-redux";
+import store from "../app/store";
+
 function MyApp({ Component, pageProps }) {
   return (
-    <AuthContextProvider>
-      <NewsContextProvider>
+    <Provider store={store}>
+      <AuthContextProvider>
         <DataContextProvider>
           <Component {...pageProps} />
         </DataContextProvider>
-      </NewsContextProvider>
-    </AuthContextProvider>
+      </AuthContextProvider>
+    </Provider>
   );
 }
 

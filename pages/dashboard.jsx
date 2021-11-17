@@ -12,6 +12,7 @@ import Home from "../components/Home";
 
 import { useAuth } from "../contexts/AuthContext";
 import { useData } from "../contexts/DataContext";
+import { useGetExchangesQuery, useGetCoinsQuery } from "../services/cryptoApi";
 
 const Dashboard = () => {
   const { auth } = useAuth();
@@ -23,6 +24,40 @@ const Dashboard = () => {
   const { data } = useData();
   const { name } = data;
 
+  const { data: allData, isFetching } = useGetCoinsQuery();
+  // const { stats } = allData?.data;
+  console.log(allData);
+  const [coinStats, setCoinStats] = useState([]);
+  // if (stats) {
+  //   setStats([
+  //     {
+  //       id: v4(),
+  //       text: "Total cryptocurrencies",
+  //       total: stats?.total,
+  //     },
+  //     {
+  //       id: v4(),
+  //       text: "Total market cap",
+  //       total: stats?.totalMarketCap,
+  //     },
+  //     {
+  //       id: v4(),
+  //       text: "Total exchanges",
+  //       total: stats?.totalExchanges,
+  //     },
+  //     {
+  //       id: v4(),
+  //       text: "Total markets",
+  //       total: stats?.totalMarkets,
+  //     },
+  //     {
+  //       id: v4(),
+  //       text: "Total 24h volume",
+  //       total: stats?.total24hVolume,
+  //     },
+  //   ]);
+  // }
+
   const getComponent = () => {
     switch (page) {
       case "currencies":
@@ -32,7 +67,7 @@ const Dashboard = () => {
       case "news":
         return <News />;
       default:
-        return <Home />;
+        return <Home stats={coinStats} />;
     }
   };
 
@@ -42,7 +77,9 @@ const Dashboard = () => {
     if (!auth.isAuthenticated && !accessToken && !refreshToken) {
       router.push("/login");
     } else {
-      setIsLoading(false);
+      if (!isFetching) {
+        setIsLoading(false);
+      }
     }
   });
   return (
