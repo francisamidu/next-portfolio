@@ -16,8 +16,9 @@ const Dashboard = () => {
     console.log(auth);
     if (!auth.isAuthenticated) {
       router.push("/login");
+    } else {
+      setIsLoading(false);
     }
-    setIsLoading(false);
   });
   return (
     <main
