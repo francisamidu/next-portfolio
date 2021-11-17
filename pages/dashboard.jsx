@@ -26,7 +26,7 @@ const Dashboard = () => {
   const { data } = useData();
   const { name } = data;
 
-  const { data: allData, isFetching } = useGetCoinsQuery();
+  const { data: allData } = useGetCoinsQuery();
   const [coinStats, setCoinStats] = useState([]);
   if (allData?.data?.stats) {
     setCoinStats([
