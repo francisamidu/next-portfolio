@@ -26,8 +26,10 @@ const Login = () => {
     event.preventDefault();
     try {
       const response = await Api.login(user.username, user.password);
-      const { user: authUser, token } = response;
-      setAuth({ isAuthenticated: true, authUser, token });
+      const { user: authUser, accessToken, refreshToken } = response;
+      setAuth({ isAuthenticated: true, authUser, accessToken, refreshToken });
+      localStorage.setItem("accessToken", accessToken);
+      localStorage.setItem("refreshToken", refreshToken);
       router.push("/dashboard");
     } catch (error) {
       console.log(error);

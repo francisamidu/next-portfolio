@@ -13,8 +13,9 @@ const Dashboard = () => {
   const [isLoading, setIsLoading] = useState(true);
 
   useEffect(() => {
-    console.log(auth);
-    if (!auth.isAuthenticated) {
+    const accessToken = localStorage.getItem('accessToken')
+    const refreshToken = localStorage.getItem('refreshToken')
+    if (!auth.isAuthenticated && !accessToken && !refreshToken) {
       router.push("/login");
     } else {
       setIsLoading(false);

@@ -6,7 +6,8 @@ export const AuthContextProvider = ({ children }) => {
   const [auth, setAuth] = useState({
     isAuthenticated: false,
     user: null,
-    token: "",
+    accessToken: "",
+    refreshToken: "",
   });
 
   return (
