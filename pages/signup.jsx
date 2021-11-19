@@ -1,15 +1,20 @@
 import React, { useState } from "react";
 import Link from "next/link";
 import Head from "next/head";
+import router from "next/router";
 import { useData } from "../contexts/DataContext";
 import { SiFacebook, SiGoogle } from "react-icons/si";
 import Button from "../components/Button";
 
 import Api from "../services/api";
 
+import useLocalStorage from "../hooks/useLocalStorage";
+
 const Signup = () => {
   const { data } = useData();
   const { name, year } = data;
+  const { email, setEmail } = useLocalStorage("email");
+  const { otp, setOTP } = useLocalStorage("otp");
 
   const [user, setUser] = useState({
     email: "",
@@ -26,7 +31,9 @@ const Signup = () => {
         user.username,
         user.password
       );
-      console.log(response);
+      setEmail(user.email);
+      setOTP(response.otp);
+      router.push("/verification");
     } catch (error) {
       console.log(error);
     }

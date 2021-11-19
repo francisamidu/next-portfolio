@@ -13,7 +13,10 @@ const Header = () => {
 
   return (
     <section className="flex md:pt-12 pt-4 relative flex-col">
-      <TrendingItem />
+      <TrendingItem
+        link="https://news.bing.com/query=anything"
+        title="Bitcoin reclaims the first position as market stabilizes"
+      />
       <nav className="flex flex-row items-center  justify-between md:px-8 py-2 px-4">
         <Link href="/">
           <a className="text-3xl font-bold">Cryptohub</a>

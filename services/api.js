@@ -55,4 +55,21 @@ export default class Api {
       throw error;
     }
   }
+  static async verifyOTP(otp) {
+    try {
+      const request = await fetch(`${BASE_URL}/auth/verify`, {
+        method: "POST",
+        body: JSON.stringify({
+          otp,
+        }),
+        headers: {
+          "Content-Type": "application/json",
+        },
+      });
+      const response = await request.json();
+      return response;
+    } catch (error) {
+      throw error;
+    }
+  }
 }
