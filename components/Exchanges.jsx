@@ -1,7 +1,7 @@
-import React from "react";
+import React, { memo } from "react";
 
 const Exchanges = () => {
   return <div>Exchanges</div>;
 };
 
-export default Exchanges;
+export default memo(Exchanges);

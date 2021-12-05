@@ -2,20 +2,23 @@ import React, { useState } from "react";
 import Link from "next/link";
 import Head from "next/head";
 import router from "next/router";
-import { useData } from "../contexts/DataContext";
-import { SiFacebook, SiGoogle } from "react-icons/si";
-import Button from "../components/Button";
 
-import Api from "../services/api";
+import Button from "../components/Button";
+import FacebookButton from "../components/FacebookButton";
+import GoogleButton from "../components/GoogleButton";
+import Error from "../components/Toast";
 
 import useLocalStorage from "../hooks/useLocalStorage";
+import { useData } from "../contexts/DataContext";
+import { useAuth } from "../contexts/AuthContext";
 
 const Signup = () => {
   const { data } = useData();
   const { name, year } = data;
-  const { email, setEmail } = useLocalStorage("email");
-  const { otp, setOTP } = useLocalStorage("otp");
+  const [email, setEmail] = useLocalStorage("email");
+  const { signup } = useAuth();
 
+  const [error, setError] = useState("");
   const [user, setUser] = useState({
     email: "",
     username: "",
@@ -26,16 +29,15 @@ const Signup = () => {
   const signupUser = async (event) => {
     event.preventDefault();
     try {
-      const response = await Api.signup(
-        user.email,
-        user.username,
-        user.password
-      );
+      await signup(user.email, user.username, user.password);
       setEmail(user.email);
-      setOTP(response.otp);
-      router.push("/verification");
+      router.push("/login");
+      // router.push("/verification");
     } catch (error) {
-      console.log(error);
+      setError(error.message);
+      setTimeout(() => {
+        setError("");
+      }, 5000);
     }
   };
 
@@ -44,7 +46,8 @@ const Signup = () => {
       <Head>
         <title>Signup - Lets get you all setup</title>
       </Head>
-      <main className="grid grid-cols-2 w-full min-h-screen py-8">
+      <main className="relative grid grid-cols-2 w-full min-h-screen py-8">
+        {error && <Error error={true} message={error} />}
         <section className="h-full w-full text-blue-900 hidden md:flex md:col-start-1 md:col-end-2 overlay px-8">
           <Link href="/">
             <a className="font-bold text-3xl">{name}</a>
@@ -63,14 +66,8 @@ const Signup = () => {
             </Link>
           </h3>
           <div className="flex flex-row items-center justify-between mt-4">
-            <div className="flex flex-row items-center justify-between facebook py-2 px-4 text-white">
-              <SiFacebook />
-              <span className="ml-4">Register with Facebook</span>
-            </div>
-            <div className="flex flex-row items-center justify-between google py-2 px-4 text-white">
-              <SiGoogle />
-              <span className="ml-4">Register with Google</span>
-            </div>
+            <FacebookButton text="Register with Facebook" />
+            <GoogleButton text="Register with Google" />
           </div>
           <div className="separator">
             <span>or</span>

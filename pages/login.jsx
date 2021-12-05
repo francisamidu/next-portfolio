@@ -3,20 +3,21 @@ import Link from "next/link";
 import router from "next/router";
 import Head from "next/head";
 
+import Button from "../components/Button";
+import FacebookButton from "../components/FacebookButton";
+import GoogleButton from "../components/GoogleButton";
+import Error from "../components/Toast";
+
 import { useData } from "../contexts/DataContext";
 import { useAuth } from "../contexts/AuthContext";
 
-import { SiFacebook, SiGoogle } from "react-icons/si";
-import Button from "../components/Button";
-
-import Api from "../services/api";
-
 const Login = () => {
   const { data } = useData();
-  const { setAuth } = useAuth();
+  const { login } = useAuth();
 
   const { name, year } = data;
 
+  const [error, setError] = useState("");
   const [user, setUser] = useState({
     username: "",
     password: "",
@@ -25,14 +26,13 @@ const Login = () => {
   const loginUser = async (event) => {
     event.preventDefault();
     try {
-      const response = await Api.login(user.username, user.password);
-      const { user: authUser, accessToken, refreshToken } = response;
-      setAuth({ isAuthenticated: true, authUser, accessToken, refreshToken });
-      localStorage.setItem("accessToken", accessToken);
-      localStorage.setItem("refreshToken", refreshToken);
+      await login(user.username, user.password);
       router.push("/dashboard");
     } catch (error) {
-      console.log(error);
+      setError(error.message);
+      setTimeout(() => {
+        setError("");
+      }, 5000);
     }
   };
 
@@ -41,7 +41,8 @@ const Login = () => {
       <Head>
         <title>Login - Lets get you back into you dashboard</title>
       </Head>
-      <main className="grid grid-cols-2 w-full min-h-screen py-8">
+      <main className="relative grid grid-cols-2 w-full min-h-screen py-8">
+        {error && <Error error={true} message={error} />}
         <section className="h-full w-full text-blue-900 hidden md:flex md:col-start-1 md:col-end-2 overlay px-8">
           <Link href="/">
             <a className="font-bold text-3xl">{name}</a>
@@ -59,14 +60,8 @@ const Login = () => {
             </Link>
           </h3>
           <div className="flex flex-row items-center justify-between mt-4">
-            <div className="flex flex-row items-center justify-between facebook py-2 px-4 text-white">
-              <SiFacebook />
-              <span className="ml-4">Login with Facebook</span>
-            </div>
-            <div className="flex flex-row items-center justify-between google py-2 px-4 text-white">
-              <SiGoogle />
-              <span className="ml-4">Login with Google</span>
-            </div>
+            <FacebookButton text="Login with Facebook" />
+            <GoogleButton text="Login with Google" />
           </div>
           <div className="separator">
             <span>or</span>

@@ -18,6 +18,10 @@
 }
 .sidebar {
   background-color: #fff;
+  max-width: 250px !important;
+}
+.switch-container {
+  cursor: pointer;
 }
 .dashboard.dark {
   background-color: rgb(12, 12, 12);
@@ -52,5 +56,17 @@
 }
 
 .dark .stat-card {
-  background-color: rgb(24, 24, 24);
+  background-color: rgb(5, 5, 5);
+}
+
+.dark .stat-card h1 {
+  color: #ddd;
+}
+
+.coin-card {
+  min-width: 200px;
+}
+
+.news-card {
+  min-width: 300px;
 }

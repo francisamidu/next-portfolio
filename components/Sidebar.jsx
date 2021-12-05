@@ -7,7 +7,7 @@ const { v4 } = require("uuid");
 
 import { BiHome, BiCoin, BiSend, BiNews } from "react-icons/bi";
 
-const Sidebar = ({ theme, setTheme }) => {
+const Sidebar = ({ theme, setTheme, setPage, page }) => {
   const { data } = useData();
   const { name } = data;
 
@@ -21,13 +21,13 @@ const Sidebar = ({ theme, setTheme }) => {
     {
       active: false,
       id: v4(),
-      name: "currency",
+      name: "currencies",
       text: "Currencies",
     },
     {
       active: false,
       id: v4(),
-      name: "exchange",
+      name: "exchanges",
       text: "Exchanges",
     },
     {
@@ -44,11 +44,11 @@ const Sidebar = ({ theme, setTheme }) => {
         return (
           <BiHome className={active ? "text-blue-500" : "text-gray-500"} />
         );
-      case "currency":
+      case "currencies":
         return (
           <BiCoin className={active ? "text-blue-500" : "text-gray-500"} />
         );
-      case "exchange":
+      case "exchanges":
         return (
           <BiSend className={active ? "text-blue-500" : "text-gray-500"} />
         );
@@ -61,10 +61,11 @@ const Sidebar = ({ theme, setTheme }) => {
     }
   };
 
-  //Toggles active and inactive link state
-  const toggleLink = (id) => {
+  //Toggles link states and page
+  const toggleLinkAndPage = (name) => {
     const updatedLinks = links.map((link) => {
-      if (link.id === id) {
+      if (link.name === name) {
+        setPage(link.name);
         return {
           ...link,
           active: true,
@@ -85,16 +86,16 @@ const Sidebar = ({ theme, setTheme }) => {
 
   return (
     <>
-      <section className="flex flex-col py-4 px-2 sidebar col-start-1 cols-end-2 min-h-screen h-full">
+      <section className="flex flex-col py-4 px-2 sidebar fixed col-start-1 cols-end-2 min-h-screen h-full w-full">
         <div className="brand pt-4 mr-4 text-center">
           <Link href="/">
             <a className="uppercase text-sm font-bold">{name}</a>
           </Link>
         </div>
-        <div className="links flex flex-col py-4">
+        <div className="links flex flex-col flex-grow py-4">
           {links.map((link) => (
             <p
-              onClick={() => toggleLink(link.id)}
+              onClick={() => toggleLinkAndPage(link.name)}
               key={link.id}
               className={
                 link.active
@@ -127,7 +128,7 @@ const Sidebar = ({ theme, setTheme }) => {
           >
             Dark mode
           </span>
-          <label htmlFor="toggle">
+          <label htmlFor="toggle" className="switch-container">
             <div
               className={
                 theme === "dark"
