@@ -1,4 +1,4 @@
-# A Cryptocurrency dashboard app built using [Next.js](https://nextjs.org/) and [TailwindCss](https://tailwindcss.com)
+# My portfolio site built using [Next.js](https://nextjs.org/) and [TailwindCss](https://tailwindcss.com)
 
 ### Getting Started (Local Environment)
 

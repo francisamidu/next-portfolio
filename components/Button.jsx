@@ -1,13 +1,21 @@
-const Button = ({ text, onClick }) => {
-  const handleClick = typeof onClick === "function" ? onClick : () => {};
-  return (
-    <button
-      className="w-max h-12 px-6 mt-4 rounded-md text-white bg-blue-600"
-      onClick={handleClick}
-    >
+import React from "react";
+
+import Link from "next/link";
+
+const Button = ({ link, text }) => {
+  const renderButton = link ? (
+    <Link href={link}>
+      <a className="flex flex-row justify-center items-center main-btn py-2 h-12 leading-normal px-8 text-center text-white capitalize rounded-md">
+        <span>{text}</span>
+      </a>
+    </Link>
+  ) : (
+    <button className="main-btn py-2 px-6 text-center text-white capitalize rounded-md">
       {text}
     </button>
   );
+
+  return <>{renderButton}</>;
 };
 
 export default Button;
