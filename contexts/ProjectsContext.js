@@ -5,6 +5,28 @@ const ProjectsContext = createContext();
 
 const ProjectContextProvider = ({ children }) => {
   const [projects, setProjects] = useState([
+    // {
+    //   id: v4(),
+    //   image: "/furnistore-1.jpg",
+    //   title: "A niche furniture E-Commerce Fullstack System",
+    //   tags: [
+    //     {
+    //       id: v4(),
+    //       text: "Reactjs",
+    //     },
+    //     {
+    //       id: v4(),
+    //       text: "Nextjs",
+    //     },
+    //     {
+    //       id: v4(),
+    //       text: "NodeJs",
+    //     },
+    //   ],
+    //   github: "https://github.com/francisamidu/furnistore",
+    //   url: "http://furnistore.herokuapp.com",
+    //   year: 2021,
+    // },
     {
       id: v4(),
       image: "/goalsapp.jpg",
