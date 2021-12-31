@@ -33,6 +33,7 @@ const WorkItem = ({ item }) => {
         src={image}
         height="400"
         width="450"
+        alt="Work image"
         className="sm:w-0 work-item-image"
       />
       <div className="content pl-4 ml-4" ref={ref}>

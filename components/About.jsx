@@ -8,12 +8,12 @@ const About = () => {
     >
       <h1 className="text-2xl about-heading">
         I'm a Frontend Developer with a desire for driving high-performance
-        accessible web experiences. I'm constantly working to design quality,
+        accessible web experiences. {"I'm"} constantly working to design quality,
         user-friendly and scalable products regardless of the stack
       </h1>
       <div className="mt-4">
         <h2 className="text-1xl text-gray-300">
-          I'm always learning and evolving my knowledge of the frontend but here
+          {"I'm"} always learning and evolving my knowledge of the frontend but here
           is a selection of tech i use on the regular
         </h2>
         <div className="my-4">
@@ -36,7 +36,7 @@ const About = () => {
         </div>
       </div>
       <h2 className="text-1xl">
-        In a pact to keep myself up to date I've been learning the
+        In a pact to keep myself up to date {"I've"} been learning the
         Backend(Nodejs,Express and MongoDB), MaterialUI, React Native and Gatsby
       </h2>
     </div>
