@@ -28,15 +28,18 @@ const WorkItem = ({ item }) => {
   }, [width]);
 
   return (
-    <div className="work-item md:p-0 p-4 w-full mb-8 flex flex-row justify-between">
-      <Image
-        src={image}
-        height="400"
-        width="450"
-        alt="Work image"
-        className="sm:w-0 work-item-image"
-      />
-      <div className="content pl-4 ml-4" ref={ref}>
+    <div className="work-item md:p-0 p-4 w-full mb-8 flex flex-col sm:flex-row justify-between">
+      <div className="w-full sm:w-3/5 relative">
+        <Image
+          src={image}
+          height="400"
+          width="480"
+          layout="intrinsic"
+          alt="Work image"
+          className="w-full work-item-image"
+        />
+      </div>
+      <div className="content pl-4 ml-4 w-2/5 sm:w-full" ref={ref}>
         <h1 className="uppercase work-item-heading text-sm">
           Featured Project
         </h1>

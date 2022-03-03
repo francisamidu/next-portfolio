@@ -97,7 +97,7 @@ button {
 }
 
 .work-item-image {
-  width: 50%;
+  width: 100%;
   height: auto;
   background-repeat: no-repeat;
   background-size: cover;

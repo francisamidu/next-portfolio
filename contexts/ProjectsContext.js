@@ -7,6 +7,113 @@ const ProjectContextProvider = ({ children }) => {
   const [projects, setProjects] = useState([
     // {
     //   id: v4(),
+    //   image: "/reala.jpg",
+    //   title: "A real estate app on the blockchain",
+    //   tags: [
+    //     {
+    //       id: v4(),
+    //       text: "Reactjs",
+    //     },
+    //     {
+    //       id: v4(),
+    //       text: "Nextjs",
+    //     },
+    //     {
+    //       id: v4(),
+    //       text: "Tailwind",
+    //     },
+    //   ],
+    //   github: "https://github.com/francisamidu/reala",
+    //   url: "http://reala.netlify.app",
+    //   year: 2022,
+    // },
+    // {
+    //   id: v4(),
+    //   image: "/sefuwallet.jpg",
+    //   title: "A secure cryptocurrency wallet on the blockchain",
+    //   tags: [
+    //     {
+    //       id: v4(),
+    //       text: "Reactjs",
+    //     },
+    //     {
+    //       id: v4(),
+    //       text: "Nextjs",
+    //     },
+    //     {
+    //       id: v4(),
+    //       text: "Solidity",
+    //     },
+    //   ],
+    //   github: "https://github.com/francisamidu/sefuwallet",
+    //   url: "http://sefuwallet.herokuapp.com",
+    //   year: 2022,
+    // },
+    // {
+    //   id: v4(),
+    //   image: "/nft-marketplace.jpg",
+    //   title:
+    //     "NFTRave is an NFT marketplace for the modern internet. Discover and collect unique NFT's",
+    //   tags: [
+    //     {
+    //       id: v4(),
+    //       text: "Reactjs",
+    //     },
+    //     {
+    //       id: v4(),
+    //       text: "Nextjs",
+    //     },
+    //     {
+    //       id: v4(),
+    //       text: "Solidity",
+    //     },
+    //   ],
+    //   github: "https://github.com/francisamidu/nftrave",
+    //   url: "http://nftrave.herokuapp.com",
+    //   year: 2022,
+    // },
+    // {
+    //   id: v4(),
+    //   image: "/wuzza.jpg",
+    //   title: "A productivity app management tool",
+    //   tags: [
+    //     {
+    //       id: v4(),
+    //       text: "Reactjs",
+    //     },
+    //     {
+    //       id: v4(),
+    //       text: "Nextjs",
+    //     },
+    //     {
+    //       id: v4(),
+    //       text: "NodeJs",
+    //     },
+    //   ],
+    //   github: "https://github.com/francisamidu/wuzza",
+    //   url: "http://wuzza.herokuapp.com",
+    //   year: 2021,
+    // },
+    // {
+    //   id: v4(),
+    //   image: "/password-manager.jpg",
+    //   title: "A simplistic password manager chrome extension",
+    //   tags: [
+    //     {
+    //       id: v4(),
+    //       text: "HTML5",
+    //     },
+    //     {
+    //       id: v4(),
+    //       text: "CSS3",
+    //     },
+    //   ],
+    //   github: "https://github.com/francisamidu/password-manager-client",
+    //   url: "https://chrome.google.com/webstore/category/extensions?hl=en-US/passman",
+    //   year: 2021,
+    // },
+    // {
+    //   id: v4(),
     //   image: "/furnistore-1.jpg",
     //   title: "A niche furniture E-Commerce Fullstack System",
     //   tags: [
