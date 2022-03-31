@@ -5,6 +5,57 @@ const ProjectsContext = createContext();
 
 const ProjectContextProvider = ({ children }) => {
   const [projects, setProjects] = useState([
+    {
+      id: v4(),
+      image: "/monstercrypt.jpg",
+      title: "A Fullstack NFT marketplace",
+      tags: [
+        {
+          id: v4(),
+          text: "Reactjs",
+        },
+        {
+          id: v4(),
+          text: "Nextjs",
+        },
+        {
+          id: v4(),
+          text: "Web3",
+        },
+        {
+          id: v4(),
+          text: "Ethers",
+        },
+      ],
+      github: "https://github.com/francisamidu/digital-asset-marketplace",
+      url: "http://monstercrypt.netlify.app",
+      year: 2022,
+    },{
+      id: v4(),
+      image: "/nftminter.jpg",
+      title: "An NFT minting website",
+      tags: [
+        {
+          id: v4(),
+          text: "Reactjs",
+        },
+        {
+          id: v4(),
+          text: "Nextjs",
+        },
+        {
+          id: v4(),
+          text: "Web3",
+        },
+        {
+          id: v4(),
+          text: "Ethers",
+        },
+      ],
+      github: "https://github.com/francisamidu/nft-minter",
+      url: "http://nftminter.netlify.app",
+      year: 2022,
+    },
     // {
     //   id: v4(),
     //   image: "/reala.jpg",
@@ -90,8 +141,8 @@ const ProjectContextProvider = ({ children }) => {
     //       text: "NodeJs",
     //     },
     //   ],
-    //   github: "https://github.com/francisamidu/wuzza",
-    //   url: "http://wuzza.herokuapp.com",
+    //   github: "https://github.com/francisamidu/wuzza-client",
+    //   url: "https://wuzza-client.herokuapp.com/",
     //   year: 2021,
     // },
     // {
@@ -131,9 +182,35 @@ const ProjectContextProvider = ({ children }) => {
     //     },
     //   ],
     //   github: "https://github.com/francisamidu/furnistore",
-    //   url: "http://furnistore.herokuapp.com",
+    //   url: "http://furnistore-client.herokuapp.com",
     //   year: 2021,
     // },
+    {
+      id: v4(),
+      image: "/note-app.jpg",
+      title: "A decentralized note taking app",
+      tags: [
+        {
+          id: v4(),
+          text: "Reactjs",
+        },
+        {
+          id: v4(),
+          text: "Nextjs",
+        },
+        {
+          id: v4(),
+          text: "Solidity",
+        },
+        {
+          id: v4(),
+          text: "Truffle & Web3.js",
+        },
+      ],
+      github: "https://github.com/francisamidu/note-app",
+      url: "http://note-app.herokuapp.com",
+      year: 2021,
+    },
     {
       id: v4(),
       image: "/goalsapp.jpg",
