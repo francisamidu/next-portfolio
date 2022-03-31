@@ -28,7 +28,7 @@ const ProjectContextProvider = ({ children }) => {
         },
       ],
       github: "https://github.com/francisamidu/digital-asset-marketplace",
-      url: "http://monstercrypt.netlify.app",
+      url: "http://digital-asset-marketplace.netlify.app",
       year: 2022,
     },{
       id: v4(),
@@ -53,7 +53,7 @@ const ProjectContextProvider = ({ children }) => {
         },
       ],
       github: "https://github.com/francisamidu/nft-minter",
-      url: "http://nftminter.netlify.app",
+      url: "http://nft-minter-web3.netlify.app",
       year: 2022,
     },
     // {
