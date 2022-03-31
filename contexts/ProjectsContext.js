@@ -208,7 +208,7 @@ const ProjectContextProvider = ({ children }) => {
         },
       ],
       github: "https://github.com/francisamidu/note-app",
-      url: "http://note-app.herokuapp.com",
+      url: "https://noter-react-app.netlify.app/",
       year: 2021,
     },
     {
