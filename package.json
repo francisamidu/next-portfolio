@@ -1,29 +1,46 @@
 {
-  "name": "Portfolio",
-  "version": "1.0.1",
-  "license": "MIT",
-  "private": true,
-  "scripts": {
-    "serve": "next dev",
-    "build": "next build",
-    "start": "next start",
-    "lint": "next lint"
-  },
-  "dependencies": {
-    "dotenv": "^10.0.0",
-    "next": "11.1.2",
-    "react": "17.0.2",
-    "react-dom": "17.0.2",
-    "react-icons": "^4.3.1",
-    "typescript": "^4.6.2",
-    "uuid": "^8.3.2"
-  },
-  "devDependencies": {
-    "autoprefixer": "^10.3.6",
-    "eslint": "7.32.0",
-    "eslint-config-next": "11.1.2",
-    "postcss": "^8.3.8",
-    "react-player": "^2.9.0",
-    "tailwindcss": "^2.2.16"
-  }
+	"name": "monstercrypt",
+	"description": "MonsterCrypt - Digital asset marketplace",
+	"main": ".next/server/pages/_app.js",
+	"author": "Francis Amidu",
+	"license": "MIT",
+	"dependencies": {
+		"@ethersproject/providers": "^5.6.2",
+		"@nomiclabs/hardhat-ethers": "^2.0.5",
+		"@nomiclabs/hardhat-waffle": "^2.0.3",
+		"@openzeppelin/contracts": "^4.5.0",
+		"@types/node": "*",
+		"@types/react": "*",
+		"@web3-react/core": "^6.1.9",
+		"@web3-react/injected-connector": "^6.0.7",
+		"@web3-react/walletconnect-connector": "^6.2.13",
+		"@web3-react/walletlink-connector": "^6.2.13",
+		"chai": "^4.3.6",
+		"date-fns": "^2.28.0",
+		"ethereum-waffle": "^3.4.0",
+		"ethers": "^5.5.4",
+		"ipfs-http-client": "^56.0.1",
+		"millify": "^4.0.0",
+		"next": "*",
+		"react": "*",
+		"react-dom": "^*",
+		"react-icons": "*",
+		"react-toastify": "^8.2.0",
+		"sass": "^1.45.1",
+		"tailwindcss": "*",
+		"tsconfig-paths-webpack-plugin": "*",
+		"typescript": "*",
+		"web3modal": "^1.9.5"
+	},
+	"devDependencies": {
+		"@types/react-dom": "^17.0.11",
+		"autoprefixer": "*",
+		"hardhat": "^2.9.1",
+		"postcss": "*"
+	},
+	"scripts": {
+		"serve": "next",
+		"build": "next build",
+		"start": "next start"
+	}
 }

@@ -1,54 +1,56 @@
 import React, { createContext, useState, useContext } from "react";
+import { Project } from "../types";
+import { uid } from "../helpers";
 
-const { v4 } = require("uuid");
-const ProjectsContext = createContext();
+const ProjectsContext = createContext<Project[]>(null);
 
 const ProjectContextProvider = ({ children }) => {
-  const [projects, setProjects] = useState([
+  const [projects, setProjects] = useState<Project[]>([
     {
-      id: v4(),
+      id: uid(),
       image: "/monstercrypt.jpg",
       title: "A Fullstack NFT marketplace",
       tags: [
         {
-          id: v4(),
+          id: uid(),
           text: "Reactjs",
         },
         {
-          id: v4(),
+          id: uid(),
           text: "Nextjs",
         },
         {
-          id: v4(),
+          id: uid(),
           text: "Web3",
         },
         {
-          id: v4(),
+          id: uid(),
           text: "Ethers",
         },
       ],
       github: "https://github.com/francisamidu/digital-asset-marketplace",
       url: "http://digital-asset-marketplace.netlify.app",
       year: 2022,
-    },{
-      id: v4(),
+    },
+    {
+      id: uid(),
       image: "/nftminter.jpg",
       title: "An NFT minting website",
       tags: [
         {
-          id: v4(),
+          id: uid(),
           text: "Reactjs",
         },
         {
-          id: v4(),
+          id: uid(),
           text: "Nextjs",
         },
         {
-          id: v4(),
+          id: uid(),
           text: "Web3",
         },
         {
-          id: v4(),
+          id: uid(),
           text: "Ethers",
         },
       ],
@@ -57,20 +59,20 @@ const ProjectContextProvider = ({ children }) => {
       year: 2022,
     },
     // {
-    //   id: v4(),
+    //   id: uid(),
     //   image: "/reala.jpg",
     //   title: "A real estate app on the blockchain",
     //   tags: [
     //     {
-    //       id: v4(),
+    //       id: uid(),
     //       text: "Reactjs",
     //     },
     //     {
-    //       id: v4(),
+    //       id: uid(),
     //       text: "Nextjs",
     //     },
     //     {
-    //       id: v4(),
+    //       id: uid(),
     //       text: "Tailwind",
     //     },
     //   ],
@@ -79,20 +81,20 @@ const ProjectContextProvider = ({ children }) => {
     //   year: 2022,
     // },
     // {
-    //   id: v4(),
+    //   id: uid(),
     //   image: "/sefuwallet.jpg",
     //   title: "A secure cryptocurrency wallet on the blockchain",
     //   tags: [
     //     {
-    //       id: v4(),
+    //       id: uid(),
     //       text: "Reactjs",
     //     },
     //     {
-    //       id: v4(),
+    //       id: uid(),
     //       text: "Nextjs",
     //     },
     //     {
-    //       id: v4(),
+    //       id: uid(),
     //       text: "Solidity",
     //     },
     //   ],
@@ -101,21 +103,21 @@ const ProjectContextProvider = ({ children }) => {
     //   year: 2022,
     // },
     // {
-    //   id: v4(),
+    //   id: uid(),
     //   image: "/nft-marketplace.jpg",
     //   title:
     //     "NFTRave is an NFT marketplace for the modern internet. Discover and collect unique NFT's",
     //   tags: [
     //     {
-    //       id: v4(),
+    //       id: uid(),
     //       text: "Reactjs",
     //     },
     //     {
-    //       id: v4(),
+    //       id: uid(),
     //       text: "Nextjs",
     //     },
     //     {
-    //       id: v4(),
+    //       id: uid(),
     //       text: "Solidity",
     //     },
     //   ],
@@ -124,20 +126,20 @@ const ProjectContextProvider = ({ children }) => {
     //   year: 2022,
     // },
     // {
-    //   id: v4(),
+    //   id: uid(),
     //   image: "/wuzza.jpg",
     //   title: "A productivity app management tool",
     //   tags: [
     //     {
-    //       id: v4(),
+    //       id: uid(),
     //       text: "Reactjs",
     //     },
     //     {
-    //       id: v4(),
+    //       id: uid(),
     //       text: "Nextjs",
     //     },
     //     {
-    //       id: v4(),
+    //       id: uid(),
     //       text: "NodeJs",
     //     },
     //   ],
@@ -146,16 +148,16 @@ const ProjectContextProvider = ({ children }) => {
     //   year: 2021,
     // },
     // {
-    //   id: v4(),
+    //   id: uid(),
     //   image: "/password-manager.jpg",
     //   title: "A simplistic password manager chrome extension",
     //   tags: [
     //     {
-    //       id: v4(),
+    //       id: uid(),
     //       text: "HTML5",
     //     },
     //     {
-    //       id: v4(),
+    //       id: uid(),
     //       text: "CSS3",
     //     },
     //   ],
@@ -164,20 +166,20 @@ const ProjectContextProvider = ({ children }) => {
     //   year: 2021,
     // },
     // {
-    //   id: v4(),
+    //   id: uid(),
     //   image: "/furnistore-1.jpg",
     //   title: "A niche furniture E-Commerce Fullstack System",
     //   tags: [
     //     {
-    //       id: v4(),
+    //       id: uid(),
     //       text: "Reactjs",
     //     },
     //     {
-    //       id: v4(),
+    //       id: uid(),
     //       text: "Nextjs",
     //     },
     //     {
-    //       id: v4(),
+    //       id: uid(),
     //       text: "NodeJs",
     //     },
     //   ],
@@ -186,24 +188,24 @@ const ProjectContextProvider = ({ children }) => {
     //   year: 2021,
     // },
     {
-      id: v4(),
+      id: uid(),
       image: "/note-app.jpg",
       title: "A decentralized note taking app",
       tags: [
         {
-          id: v4(),
+          id: uid(),
           text: "Reactjs",
         },
         {
-          id: v4(),
+          id: uid(),
           text: "Nextjs",
         },
         {
-          id: v4(),
+          id: uid(),
           text: "Solidity",
         },
         {
-          id: v4(),
+          id: uid(),
           text: "Truffle & Web3.js",
         },
       ],
@@ -212,20 +214,20 @@ const ProjectContextProvider = ({ children }) => {
       year: 2021,
     },
     {
-      id: v4(),
+      id: uid(),
       image: "/goalsapp.jpg",
       title: "A React and Tailwind landing page design for a SAAS app/company",
       tags: [
         {
-          id: v4(),
+          id: uid(),
           text: "Reactjs",
         },
         {
-          id: v4(),
+          id: uid(),
           text: "Nextjs",
         },
         {
-          id: v4(),
+          id: uid(),
           text: "TailwindCss",
         },
       ],
@@ -233,54 +235,10 @@ const ProjectContextProvider = ({ children }) => {
       url: "http://goalsapp.vercel.app",
       year: 2021,
     },
-    {
-      id: v4(),
-      image: "/portfolio.jpg",
-      title: "Portfolio redesign with Nextjs and TailwindCss",
-      tags: [
-        {
-          id: v4(),
-          text: "Nextjs",
-        },
-        {
-          id: v4(),
-          text: "Context API",
-        },
-        {
-          id: v4(),
-          text: "Sass",
-        },
-      ],
-      github: "https://github.com/francisamidu/next-portfolio",
-      url: "http://francisamidu.vercel.app",
-      year: 2021,
-    },
-    {
-      id: v4(),
-      image: "/gitfiles.jpg",
-      title: "Github profile and repo search App",
-      tags: [
-        {
-          id: v4(),
-          text: "Context API",
-        },
-        {
-          id: v4(),
-          text: "NextJs",
-        },
-        {
-          id: v4(),
-          text: "Css Modules",
-        },
-      ],
-      github: "http://github.com/franciamidu/gitfiles",
-      url: "http://gitfiles-app.herokuapp.com/",
-      year: 2021,
-    },
   ]);
 
   return (
-    <ProjectsContext.Provider value={{ projects }}>
+    <ProjectsContext.Provider value={projects}>
       {children}
     </ProjectsContext.Provider>
   );

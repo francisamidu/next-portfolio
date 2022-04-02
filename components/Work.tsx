@@ -1,11 +1,11 @@
 import React from "react";
 
-import WorkItem from "./WorkItem";
+import { Button, WorkItem } from ".";
 
 import { useProjects } from "../contexts/ProjectsContext";
 
 const Work = () => {
-  const { projects } = useProjects();
+  const projects = useProjects();
   return (
     <div className="md:max-w-screen-lg md:px-0 px-10 m-auto py-4" id="work">
       <h1 className="text-3xl work-heading font-bold text-gray-100 mb-10">
@@ -15,6 +15,7 @@ const Work = () => {
         {projects?.map((project) => (
           <WorkItem item={project} key={project.id} />
         ))}
+        <Button link="https://www.github.com/francisamidu" text="Browse All" />
       </div>
     </div>
   );

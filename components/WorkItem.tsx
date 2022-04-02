@@ -1,13 +1,14 @@
 import { useEffect, useRef, useState } from "react";
 import Image from "next/image";
 
-import { BsGithub, BsLink } from "react-icons/bs";
+import { BsGithub } from "react-icons/bs";
+import { MdLink as ILink } from "react-icons/md";
 
 const WorkItem = ({ item }) => {
   const { image, title, github, url, tags } = item;
   const ref = useRef();
   const getWidth = () => {
-    if (process.browser) {
+    if (process?.browser) {
       return window.innerWidth;
     }
     return 0;
@@ -19,10 +20,10 @@ const WorkItem = ({ item }) => {
       const { target } = event;
       const { current } = ref;
       const sibling = current?.previousSibling;
-      if (target.innerWidth < 640 && sibling) {
-        sibling.classList.add("hidden");
+      if (target?.innerWidth < 640 && sibling) {
+        sibling?.classList?.add("hidden");
       } else {
-        sibling.classList.remove("hidden");
+        sibling?.classList?.remove("hidden");
       }
     });
   }, [width]);
@@ -40,7 +41,7 @@ const WorkItem = ({ item }) => {
         />
       </div>
       <div className="content pl-4 ml-4 w-2/5 sm:w-full" ref={ref}>
-        <h1 className="uppercase work-item-heading text-sm">
+        <h1 className="uppercase font-bold work-item-heading text-sm">
           Featured Project
         </h1>
         <h2 className="text-2xl text-white mt-2 work-title p-4 rounded-sm">
@@ -61,7 +62,7 @@ const WorkItem = ({ item }) => {
             <BsGithub />
           </a>
           <a href={url} className=" text-white text-3xl">
-            <BsLink />
+            <ILink />
           </a>
         </div>
       </div>
