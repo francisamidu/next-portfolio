@@ -187,32 +187,32 @@ const ProjectContextProvider = ({ children }) => {
     //   url: "http://furnistore-client.herokuapp.com",
     //   year: 2021,
     // },
-    {
-      id: uid(),
-      image: "/note-app.jpg",
-      title: "A decentralized note taking app",
-      tags: [
-        {
-          id: uid(),
-          text: "Reactjs",
-        },
-        {
-          id: uid(),
-          text: "Nextjs",
-        },
-        {
-          id: uid(),
-          text: "Solidity",
-        },
-        {
-          id: uid(),
-          text: "Truffle & Web3.js",
-        },
-      ],
-      github: "https://github.com/francisamidu/note-app",
-      url: "https://noter-react-app.netlify.app/",
-      year: 2021,
-    },
+    // {
+    //   id: uid(),
+    //   image: "/note-app.jpg",
+    //   title: "A decentralized note taking app",
+    //   tags: [
+    //     {
+    //       id: uid(),
+    //       text: "Reactjs",
+    //     },
+    //     {
+    //       id: uid(),
+    //       text: "Nextjs",
+    //     },
+    //     {
+    //       id: uid(),
+    //       text: "Solidity",
+    //     },
+    //     {
+    //       id: uid(),
+    //       text: "Truffle & Web3.js",
+    //     },
+    //   ],
+    //   github: "https://github.com/francisamidu/note-app",
+    //   url: "https://note-app-web3.netlify.app/",
+    //   year: 2021,
+    // },
     {
       id: uid(),
       image: "/goalsapp.jpg",
