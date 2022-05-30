@@ -6,32 +6,32 @@ const ProjectsContext = createContext<Project[]>(null);
 
 const ProjectContextProvider = ({ children }) => {
   const [projects, setProjects] = useState<Project[]>([
-    // {
-    //   id: uid(),
-    //   image: "/monstercrypt.jpg",
-    //   title: "A Fullstack NFT marketplace",
-    //   tags: [
-    //     {
-    //       id: uid(),
-    //       text: "Reactjs",
-    //     },
-    //     {
-    //       id: uid(),
-    //       text: "Nextjs",
-    //     },
-    //     {
-    //       id: uid(),
-    //       text: "Web3",
-    //     },
-    //     {
-    //       id: uid(),
-    //       text: "Ethers",
-    //     },
-    //   ],
-    //   github: "https://github.com/francisamidu/digital-asset-marketplace",
-    //   url: "http://digital-asset-marketplace.herokuapp.com",
-    //   year: 2022,
-    // },
+    {
+      id: uid(),
+      image: "/monstercrypt.jpg",
+      title: "A Fullstack NFT marketplace",
+      tags: [
+        {
+          id: uid(),
+          text: "Reactjs",
+        },
+        {
+          id: uid(),
+          text: "Nextjs",
+        },
+        {
+          id: uid(),
+          text: "Web3",
+        },
+        {
+          id: uid(),
+          text: "Ethers",
+        },
+      ],
+      github: "https://github.com/francisamidu/digital-asset-marketplace",
+      url: "https://digital-asset-marketplace.netlify.app",
+      year: 2022,
+    },
     {
       id: uid(),
       image: "/nftminter.jpg",
@@ -55,7 +55,7 @@ const ProjectContextProvider = ({ children }) => {
         },
       ],
       github: "https://github.com/francisamidu/nft-minter",
-      url: "http://nft-minter-web3.herokuapp.com",
+      url: "https://nft-minter-web3.netlify.app",
       year: 2022,
     },
     // {

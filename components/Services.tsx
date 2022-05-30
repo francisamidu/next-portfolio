@@ -11,16 +11,16 @@ const Services = () => {
     {
       id: uid(),
       icon: <IDesktop className="text-3xl text-white" />,
-      name: "Fullstack Development",
+      name: "UI/Frontend Development",
       description:
-        "From frontend design to backend development, I deliver bespoke and custom web experiences for your business",
+        "From UI design to frontend coding, I deliver bespoke and custom web experiences for your business",
     },
     {
       id: uid(),
       icon: <IBot className="text-3xl text-white" />,
-      name: "Bot Development",
+      name: "Smart Contract Development",
       description:
-        "I develop useful Whatsapp, Discord & Telegram bots and Web3 bots (nft minting etc...). Contact me for your bot development needs.",
+        "I develop state-of-the-art smart contracts on EVM powered blockchains like Ethereum, Polygon, BSC and more...",
     },
     {
       id: uid(),
@@ -36,7 +36,7 @@ const Services = () => {
       <div className="flex sm:flex-row flex-col items-center justify-center mt-5">
         {services.map((s, index) => (
           <div
-            className={`feature work-title rounded-sm p-8 sm:max-w-[320px] flex flex-col justify-center items-center ${
+            className={`feature work-title rounded-sm p-8 sm:max-w-[320px] flex min-h-[240px] flex-col justify-center items-center ${
               index === 1 ? "sm:mx-4 my-2 sm:my-0" : ""
             } hover:bg-blue-500 transition duration-200 scale-1 text-center`}
             key={s.id}
