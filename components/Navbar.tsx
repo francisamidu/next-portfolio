@@ -23,10 +23,7 @@ const Navbar = () => {
         <Link href="#contact">
           <a className="text-md font-bold text-gray-100 mr-8">Contact</a>
         </Link>
-        <Button
-          link="/Francis-Amidu-Junior-Developer-Resume.pdf"
-          text="Resume"
-        />
+        <Button link="/FRANCIS-AMIDU-BLOCKCHAIN-RESUME.pdf" text="Resume" />
       </div>
     </nav>
   );

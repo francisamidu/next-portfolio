@@ -10,11 +10,11 @@ const App = () => {
   return (
     <>
       <Head>
-        <title>Full-Stack Developer - Francis Amidu</title>
+        <title>Full-Stack Blockchain Developer - Francis Amidu</title>
         <meta name="author" content="Francis Amidu" />
         <meta
           name="description"
-          content="Francis Amidu, A fullstack web developer specialising in HTML5, CSS3, JavaScript, ReactJs and Node.js"
+          content="Francis Amidu, A blockchain developer specialising in Solidity, JavaScript, ReactJs and Node.js"
         />
         <meta
           property="og:title"
@@ -22,7 +22,7 @@ const App = () => {
         />
         <meta
           property="og:description"
-          content="Francis Amidu, A fullstack web developer specialising in HTML5, CSS3, JavaScript, ReactJs and Node.js"
+          content="Francis Amidu, A blockchain developer specialising in Solidity, JavaScript, ReactJs and Node.js"
         />
         <meta property="og:type" content="website" />
         <meta property="og:author" content="Francis Amidu" />
@@ -34,12 +34,12 @@ const App = () => {
         />
         <link rel="icon" href="/favicon.ico" />
       </Head>
-      <main role="main" tabIndex="2" id="main" className="p-4">
+      <main role="main" id="main" className="p-4">
         <div className="socials flex flex-col items-center justify-center">
           <a href="https://github.com/francisamidu">
             <BsGithub className="text-white text-2xl mb-4" />
           </a>
-          <a href="https://www.linkedin.com/in/francis-amidu-fullstack-developer">
+          <a href="https://www.linkedin.com/in/francis-amidu-blockchain-developer">
             <BsLinkedin className="text-white text-2xl mb-4" />
           </a>
           <a href="mailto:francisamidu124@gmail.com">
